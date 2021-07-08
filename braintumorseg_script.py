@@ -45,3 +45,41 @@ class Ui_MainWindow(object):
         
         self.image_dir = "C://Users/HASSAN/OneDrive/Python/test"  # Define image directory
         
+        self.slctimg = QtWidgets.QPushButton(self.frame)
+        self.slctimg.setGeometry(QtCore.QRect(600, 10, 171, 61))
+        self.slctimg.setStyleSheet("color:white;\n"
+                                   "font: 14pt \"Gadugi\";\n"
+                                   "border-radius: 20px;\n"
+                                   "border: 2px solid #00c6fb;\n"
+                                   "background-color:#005bea;")
+      
+        self.slctimg.setObjectName("slctimg")
+        
+        self.rgbtgray = QtWidgets.QPushButton(self.frame)
+        self.rgbtgray.setGeometry(QtCore.QRect(600, 80, 171, 61))
+        self.rgbtgray.setStyleSheet("color:white;\n"
+                                    "font: 14pt \"Gadugi\";\n"
+                                    "   border-radius: 20px;\n"
+                                    "    border: 2px solid #00c6fb;\n"
+                                    "background-color:#005bea;\n"
+                                    "width:171px;\n"
+                                    "height:61px;")
+        self.rgbtgray.setObjectName("rgbtgray")
+        self.bilfil = QtWidgets.QPushButton(self.frame)
+        self.bilfil.setGeometry(QtCore.QRect(600, 150, 171, 61))
+        self.bilfil.setStyleSheet("color:white;\n"
+                                  "font: 14pt \"Gadugi\";\n"
+                                  "   border-radius: 20px;\n"
+                                  "    border: 2px solid #00c6fb;\n"
+                                  "background-color:#005bea;\n"
+                                  "width:171px;\n"
+                                  "height:61px;")
+        self.bilfil.setObjectName("bilfil")
+        self.medfil = QtWidgets.QPushButton(self.frame)
+        self.medfil.setGeometry(QtCore.QRect(600, 220, 171, 61))
+        self.medfil.setStyleSheet("color:white;\n"
+                                  "font: 14pt \"Gadugi\";\n"
+                                  "   border-radius: 20px;\n"
+                                  "    border: 2px solid #00c6fb;\n"
+                                  "background-color:#005bea;\n"
+                                  "width:171px;\n"
