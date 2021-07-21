@@ -83,3 +83,53 @@ class Ui_MainWindow(object):
                                   "    border: 2px solid #00c6fb;\n"
                                   "background-color:#005bea;\n"
                                   "width:171px;\n"
+                                  "height:61px;")
+        self.medfil.setObjectName("medfil")
+        self.gaufil = QtWidgets.QPushButton(self.frame)
+        self.gaufil.setGeometry(QtCore.QRect(390, 150, 111, 41))
+        self.gaufil.setStyleSheet("background-color: #008CBA;\n"
+                                  "text-align: center;\n"
+                                  "\n"
+                                  "")
+        self.gaufil.setObjectName("gaufil")
+        self.thres = QtWidgets.QPushButton(self.frame)
+        self.thres.setGeometry(QtCore.QRect(600, 290, 171, 61))
+        self.thres.setStyleSheet("color:white;\n"
+                                 "font: 14pt \"Gadugi\";\n"
+                                 "   border-radius: 20px;\n"
+                                 "    border: 2px solid #00c6fb;\n"
+                                 "background-color:#005bea;\n"
+                                 "width:171px;\n"
+                                 "height:61px;")
+        self.thres.setObjectName("thres")
+        self.dilate = QtWidgets.QPushButton(self.frame)
+        self.dilate.setGeometry(QtCore.QRect(600, 360, 171, 61))
+        self.dilate.setStyleSheet("color:white;\n"
+                                  "font: 14pt \"Gadugi\";\n"
+                                  "   border-radius: 20px;\n"
+                                  "    border: 2px solid #00c6fb;\n"
+                                  "background-color:#005bea;\n"
+                                  "width:171px;\n"
+                                  "height:61px;")
+        self.dilate.setObjectName("dilate")
+        self.morpho = QtWidgets.QPushButton(self.frame)
+        self.morpho.setGeometry(QtCore.QRect(600, 430, 171, 61))
+        self.morpho.setStyleSheet("color:white;\n"
+                                  "font: 14pt \"Gadugi\";\n"
+                                  "   border-radius: 20px;\n"
+                                  "    border: 2px solid #00c6fb;\n"
+                                  "background-color:#005bea;\n"
+                                  "width:171px;\n"
+                                  "height:61px;")
+        self.morpho.setObjectName("morpho")
+        self.addcol = QtWidgets.QPushButton(self.frame)
+        self.addcol.setGeometry(QtCore.QRect(600, 500, 171, 61))
+        self.addcol.setStyleSheet("color:white;\n"
+                                  "font: 14pt \"Gadugi\";\n"
+                                  "   border-radius: 20px;\n"
+                                  "    border: 2px solid #00c6fb;\n"
+                                  "background-color:#005bea;\n"
+                                  "width:171px;\n"
+                                  "height:61px;")
+        self.addcol.setObjectName("addcol")
+        self.savimg = QtWidgets.QPushButton(self.frame)
