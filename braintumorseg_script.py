@@ -133,3 +133,47 @@ class Ui_MainWindow(object):
                                   "height:61px;")
         self.addcol.setObjectName("addcol")
         self.savimg = QtWidgets.QPushButton(self.frame)
+        self.savimg.setGeometry(QtCore.QRect(600, 570, 171, 61))
+        self.savimg.setStyleSheet("color:white;\n"
+                                  "font: 14pt \"Gadugi\";\n"
+                                  "   border-radius: 20px;\n"
+                                  "    border: 2px solid #00c6fb;\n"
+                                  "background-color:#005bea;\n"
+                                  "width:171px;\n"
+                                  "height:61px;")
+        self.savimg.setObjectName("savimg")
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setGeometry(QtCore.QRect(20, 90, 261, 421))
+        self.label.setStyleSheet("background-color: rgb(218, 218, 218);\n"
+                                 "   border-radius: 20px;\n"
+                                 "    border: 2px solid #00c6fb;")
+        self.label.setText("")
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.frame)
+        self.label_2.setGeometry(QtCore.QRect(299, 90, 261, 421))
+        self.label_2.setStyleSheet("background-color: rgb(218, 218, 218);\n"
+                                   "   border-radius: 20px;\n"
+                                   "    border: 2px solid #00c6fb;")
+        self.label_2.setText("")
+        self.label_2.setObjectName("label_2")
+        self.titlelbl = QtWidgets.QLabel(self.centralwidget)
+        self.titlelbl.setGeometry(QtCore.QRect(450, 10, 501, 41))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(26)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.titlelbl.setFont(font)
+        self.titlelbl.setStyleSheet("opacity:0.6;\n"
+                                    "font: 26pt \"MS Shell Dlg 2\";\n"
+                                    "color: rgb(216, 216, 216);")
+        self.titlelbl.setObjectName("titlelbl")
+        MainWindow.setCentralWidget(self.centralwidget)
+
+         # Define and set up other buttons similarly
+        
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        error_dialog = QtWidgets.QErrorMessage()
