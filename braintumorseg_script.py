@@ -290,3 +290,60 @@ class Ui_MainWindow(object):
                                                           opening2.strides[0], QtGui.QImage.Format_Grayscale8))
             pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
                                    QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+    
+    def contouring(self):
+        if a is not None and self.segmented_image is not None:
+            # Read the image
+            image_copy = cv2.imread(a)
+            
+            print(image_copy.shape, 'img')
+            print(self.segmented_image.shape, 'seg')  # Corrected line
+            
+            contours, hierarchy = cv2.findContours(self.segmented_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[-2:]
+    
+            # Create a copy of the image
+            image_copy_with_contours = image_copy.copy()
+    
+            b = cv2.drawContours(image_copy_with_contours, contours, -1, (0, 0, 255), 3)
+    
+            # Resize the images to have the same dimensions
+            b_resized = cv2.resize(b, (self.segmented_image.shape[1], self.segmented_image.shape[0]))
+    
+            # Convert the grayscale image to color
+            segmented_color = cv2.cvtColor(self.segmented_image, cv2.COLOR_GRAY2BGR)
+            
+            
+            # Perform weighted addition
+            dst = cv2.addWeighted(segmented_color, 0.7, b_resized, 0.3, 0)
+    
+            self.colorimg = dst
+            
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(dst.data, dst.shape[1], dst.shape[0],
+                                                          dst.strides[0], QtGui.QImage.Format_RGB888))  # Format_RGB888 for color image
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+   
+    def applyingcolor(self):
+        if self.colorimg is not None:
+            img3 = cv2.applyColorMap(self.colorimg, cv2.COLORMAP_HOT)
+            self.img3 = img3
+            
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(img3.data, img3.shape[1], img3.shape[0],
+                                                          img3.strides[0], QtGui.QImage.Format_RGB888))
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+    
+    def saving(self):
+        if self.img3 is not None:
+            fname, _ = QtWidgets.QFileDialog.getSaveFileName(None, 'Save Image',
+                                                            self.image_dir, "Image files (*.jpg)")
+            if fname:
+                cv2.imwrite(fname, self.img3)
+            else:
+                print('Image not saved')
+    
+if __name__ == "__main__":
+    import sys
