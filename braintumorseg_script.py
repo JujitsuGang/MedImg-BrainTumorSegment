@@ -177,3 +177,64 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         error_dialog = QtWidgets.QErrorMessage()
+        error_dialog.setWindowTitle('Image processing tool')
+        error_dialog.setWindowIcon(QIcon('C:\\Users\HASSAN\Desktop\error.png'))
+        error_dialog.showMessage('Please click the buttons in Sequential order to proceed!')
+        error_dialog.exec()
+
+
+        path = "C://Users/HASSAN/OneDrive/Python/test"
+
+        filelist = glob.glob(os.path.join(path, "*.png"))
+        for f in filelist:
+            os.remove(f)
+            print('deleted')
+
+        self.original_image = None
+        self.segmented_image = None
+
+        self.slctimg.clicked.connect(self.setImage)
+        self.rgbtgray.clicked.connect(self.filter1)
+        self.bilfil.clicked.connect(self.filter2)
+        self.medfil.clicked.connect(self.filter3)
+        self.thres.clicked.connect(self.threshing)
+        self.dilate.clicked.connect(self.dilation)
+        self.morpho.clicked.connect(self.contouring)
+        self.addcol.clicked.connect(self.applyingcolor)
+        self.savimg.clicked.connect(self.saving)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Tumor Segmentation Panel"))
+        self.slctimg.setText(_translate("MainWindow", "Select Image"))
+        self.rgbtgray.setText(_translate("MainWindow", "Bilateral Filter"))
+        self.bilfil.setText(_translate("MainWindow", "Median Filter"))
+        self.medfil.setText(_translate("MainWindow", "Gaussian Filter"))
+        self.thres.setText(_translate("MainWindow", "Thresholding"))
+        self.dilate.setText(_translate("MainWindow", "Dilation"))
+        self.morpho.setText(_translate("MainWindow", "Morphology"))
+        self.addcol.setText(_translate("MainWindow", "Add Color Map"))
+        self.savimg.setText(_translate("MainWindow", "Save Image"))
+        self.titlelbl.setText(_translate("MainWindow", "Tumor Segmentation Panel"))
+
+    def setImage(self):
+        global a
+        fileName, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select Image", "D://BrainTumorSegmentation/resources/",
+                                                            "Image Files (*.png *.jpg *jpeg *.bmp)")  # Ask for file
+
+        if fileName:
+            self.a = fileName
+
+            pixmap = QtGui.QPixmap(fileName)  # Setup pixmap with the provided image
+            pixmap = pixmap.scaled(self.label.width(), self.label.height(),
+                                   QtCore.Qt.KeepAspectRatio)  # Scale pixmap
+            self.label.setPixmap(pixmap)  # Set the pixmap onto the label
+            self.label.setAlignment(QtCore.Qt.AlignCenter)  # Align the label to center
+
+    def filter1(self):
+        global a
+        
+        if a:
+            img = cv2.imread(a)
+            grey = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+            self.bilateral = cv2.bilateralFilter(grey, 2, 50, 50)
