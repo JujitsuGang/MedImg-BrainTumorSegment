@@ -238,3 +238,55 @@ class Ui_MainWindow(object):
             img = cv2.imread(a)
             grey = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
             self.bilateral = cv2.bilateralFilter(grey, 2, 50, 50)
+            
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(self.bilateral.data, self.bilateral.shape[1], self.bilateral.shape[0],
+                                                          self.bilateral.strides[0], QtGui.QImage.Format_Grayscale8))
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+            
+    def filter2(self):
+       if self.bilateral is not None:
+            self.median = cv2.medianBlur(self.bilateral, 5)
+            
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(self.median.data, self.median.shape[1], self.median.shape[0],
+                                                          self.median.strides[0], QtGui.QImage.Format_Grayscale8))
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+    
+    def filter3(self):
+        if self.median is not None:
+            self.Gaussian = cv2.GaussianBlur(self.median, (5, 5), cv2.BORDER_CONSTANT)
+            
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(self.Gaussian.data, self.Gaussian.shape[1], self.Gaussian.shape[0],
+                                                          self.Gaussian.strides[0], QtGui.QImage.Format_Grayscale8))
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+    
+    def threshing(self):
+        if self.Gaussian is not None:
+            # Apply adaptive thresholding
+            thresh1 = cv2.adaptiveThreshold(self.Gaussian, 127, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+            
+            self.segmented_image = thresh1  # Update segmented_image with the thresholded image
+    
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(thresh1.data, thresh1.shape[1], thresh1.shape[0],
+                                                          thresh1.strides[0], QtGui.QImage.Format_Grayscale8))
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
+            self.label_2.setPixmap(pixmap)
+
+    def dilation(self):
+        if self.segmented_image is not None:
+            kernel = np.ones((5, 5), np.uint8)
+            opening1 = cv2.dilate(self.segmented_image, kernel, iterations=1)
+            opening2 = cv2.morphologyEx(opening1, cv2.MORPH_CLOSE, kernel)
+            
+            self.segmented_image = opening2
+            
+            pixmap = QtGui.QPixmap.fromImage(QtGui.QImage(opening2.data, opening2.shape[1], opening2.shape[0],
+                                                          opening2.strides[0], QtGui.QImage.Format_Grayscale8))
+            pixmap = pixmap.scaled(self.label_2.width(), self.label_2.height(),
+                                   QtCore.Qt.KeepAspectRatio)
