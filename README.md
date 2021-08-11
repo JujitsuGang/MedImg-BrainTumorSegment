@@ -1,1 +1,1 @@
-In the world of diagnostics, the intersection of AI
+In the world of diagnostics, the intersection of AI and computer vision is proving to be transformative. P
