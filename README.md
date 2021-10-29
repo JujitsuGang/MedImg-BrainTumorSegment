@@ -2,4 +2,5 @@ In the world of diagnostics, the intersection of AI and computer vision is provi
 
 To segment images, a sequence of image processing steps are used:
 1. **Selective Insights:** The first step is to select the image that's to be segmented.
-2. **Bilateral Refinement:** A bilateral filter is then applied to preserve finer d
+2. **Bilateral Refinement:** A bilateral filter is then applied to preserve finer details while suppressing noise.
+3. **Median Transformatio
