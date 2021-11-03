@@ -5,4 +5,5 @@ To segment images, a sequence of image processing steps are used:
 2. **Bilateral Refinement:** A bilateral filter is then applied to preserve finer details while suppressing noise.
 3. **Median Transformation:** A median filter is applied to smoothen the image whilst preserving important structures.
 4. **Gaussian Symphony:** A Gaussian filter is then used to mix and enhance the image's contours.
-5. **Thresholded Precision:** Thresholding is applied t
+5. **Thresholded Precision:** Thresholding is applied to denote the image's essence.
+6. **Dilation and Morpholo
