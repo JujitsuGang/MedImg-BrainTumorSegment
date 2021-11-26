@@ -7,4 +7,4 @@ To segment images, a sequence of image processing steps are used:
 4. **Gaussian Symphony:** A Gaussian filter is then used to mix and enhance the image's contours.
 5. **Thresholded Precision:** Thresholding is applied to denote the image's essence.
 6. **Dilation and Morphology:** Dilation and morphological operations are used for deeper intuition.
-7. **Color Mapping Elegance
+7. **Color Mapping Elegance:** Finally, a color map is added to create a dyna
