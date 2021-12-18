@@ -8,4 +8,6 @@ To segment images, a sequence of image processing steps are used:
 5. **Thresholded Precision:** Thresholding is applied to denote the image's essence.
 6. **Dilation and Morphology:** Dilation and morphological operations are used for deeper intuition.
 7. **Color Mapping Elegance:** Finally, a color map is added to create a dynamic image.
-8. **Preserving the Epiphany:** The
+8. **Preserving the Epiphany:** The segmented image is saved.
+
+This project serves as a 
