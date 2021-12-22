@@ -10,4 +10,6 @@ To segment images, a sequence of image processing steps are used:
 7. **Color Mapping Elegance:** Finally, a color map is added to create a dynamic image.
 8. **Preserving the Epiphany:** The segmented image is saved.
 
-This project serves as a glimpse into the convergence of AI and computer vision in the realm of medical care. Through it, the medical industry is witnessing a fusion between human expertise and cutting-edge technology. The promise is a shift in the way patient wellbei
+This project serves as a glimpse into the convergence of AI and computer vision in the realm of medical care. Through it, the medical industry is witnessing a fusion between human expertise and cutting-edge technology. The promise is a shift in the way patient wellbeing is perceived and catered to.
+
+![Project GUI](https://user-im
