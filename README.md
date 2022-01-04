@@ -14,4 +14,4 @@ This project serves as a glimpse into the convergence of AI and computer vision 
 
 ![Project GUI](https://user-images.githubusercontent.com/27898184/84681701-f79fa980-af4d-11ea-976c-d6f382baeab6.PNG)
 
-Code ownership 
+Code ownership has been transferred from original owner 'HassanSajjad229' to the new owner
